@@ -1,0 +1,77 @@
+<div class="create-post-modal">
+  <div class="create-post-modal__header">
+    <h3
+      mat-dialog-title
+      *ngIf="modalData.title"
+      class="title"
+      [attr.aria-label]="title"
+    >
+      {{ modalData.title }}
+    </h3>
+    <span class="material-icons pointer" (click)="closeModal()"> close </span>
+  </div>
+
+  <mat-dialog-content>
+    <div class="create-post-modal__body">
+      <div>
+        <img class="profile" src="../../../assets/profile.svg" alt="profile" width="400" height="300"/>
+        <span class="name" *ngIf="modalData.name">{{ modalData.name }}</span>
+      </div>
+    </div>
+
+    <app-dropdown></app-dropdown>
+
+    <div class="create-post-modal__content">
+      <textarea
+        id="text-area"
+        rows="5"
+        class="text-area"
+        matInput
+        placeholder="What's happening?"
+        [(ngModel)]="content"
+        [maxlength]="maxChars"
+      ></textarea>
+      <label class="count">{{ content.length }}/{{ maxChars }}</label>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="bold create-post-modal__action">
+    <div class="container" *ngIf="imageUrl">
+      <img width="100%" [src]="imageUrl" class="image" />
+      <button class="emoji-button remove-image-button" (click)="removeImage()">
+        <span class="material-icons icon close-icon">close</span>
+      </button>
+    </div>
+    <div>
+      <input
+        #Image
+        id="imageUpload"
+        type="file"
+        accept="image/*"
+        class="hide"
+        (change)="handleFileInput($event.target.files)"
+      />
+      <label for="imageUpload"
+        ><span class="material-icons icon">image</span></label
+      >
+      <button
+        class="emoji-button"
+        matTooltipPosition="above"
+        matTooltip="Hey, I'm a emoji..!!"
+        aria-label="Button that displays a tooltip when focused or hovered over"
+      >
+        <span class="material-icons icon">emoji_emotions</span>
+      </button>
+    </div>
+    <button
+      class="button"
+      mat-raised-button
+      *ngIf="modalData.primaryButtonLabel"
+      (click)="closeModal()"
+      [attr.aria-label]="primaryButtonLabel"
+    >
+      {{ modalData.primaryButtonLabel }}
+      <span class="material-icons send"> send </span>
+    </button>
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,29 @@
+<ng-container *ngIf="!isExpanded; else dropdown">
+  <button class="dropdown pointer" (click)="isExpanded = !isExpanded" tabindex="-1">
+    <mat-icon class="icon">{{ selectedOption.icon }}</mat-icon
+    ><span class="option">{{ selectedOption.name }}</span>
+    <span class="arrow" [ngClass]="{ down: !isExpanded, up: isExpanded }">
+    </span>
+  </button>
+</ng-container>
+
+<ng-template #dropdown>
+  <button class="dropdown" (click)="isExpanded = !isExpanded">
+    <mat-icon class="icon">{{ selectedOption.icon }}</mat-icon
+    ><span class="option">{{ selectedOption.name }}</span>
+    <span class="arrow" [ngClass]="{ down: !isExpanded, up: isExpanded }">
+    </span>
+  </button>
+  <ul *ngIf="isExpanded" class="list">
+    <li
+      class="ullist"
+      *ngFor="let option of options"
+      (click)="onOptionSelection(option.value)"
+    >
+      <mat-icon class="icon">{{ option.icon }}</mat-icon
+      ><span class="option-span">{{ option.name }}</span>
+      <span class="material-icons check-icon" *ngIf="selectedOption.name === option.name">check</span>
+      <div class="description">{{ option.description }}</div>
+    </li>
+  </ul>
+</ng-template>

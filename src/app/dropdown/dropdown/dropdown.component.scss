@@ -1,0 +1,90 @@
+.dropdown {
+  width: 23%;
+  background-color: #00a8ff21;
+  color: #25a7c3;
+  padding: 5px 10px 0px 0px;;
+  text-align: center;
+  border-radius: 23px;
+  border: 1px solid #25a7c324;
+  margin: -35px 0px 0px 445px;
+
+  .option {
+    vertical-align: super;
+    margin-left: 8px;
+  }
+
+  .arrow {
+    border: solid #25a7c3;
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    float: right;
+    margin-right: 8px;
+    margin-top: 6px;
+    height: 1px;
+    width: 1px;
+
+    &.down {
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+
+    &.up {
+      transform: rotate(-135deg);
+      -webkit-transform: rotate(-135deg);
+    }
+  }
+}
+
+ul.list {
+  display: inline-block !important;
+  margin: 25px -235px;
+  position: absolute;
+  background-color: white;
+  z-index: 9;
+  color: #000000c4;
+  list-style-type: none !important;
+  border: 1px solid #25a7c324;
+  padding: 7px 12px;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+
+  .option-span {
+    margin-left: 10px;
+  }
+
+  .check-icon {
+    font-size: large;
+    margin-left: 50%;
+  }
+
+  .description {
+    margin: 5px 33px;
+    opacity: 0.5;
+  }
+
+  .ullist {
+    margin-top: 5px;
+
+    &:hover {
+      color: #25a7c3;
+    }
+  }
+
+  .ullist:nth-child(1) {
+    border-bottom: 1px solid #25a7c324;
+  }
+
+  .icon {
+    font-size: 20px;
+    vertical-align: top;
+  }
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.pointer {
+  cursor: pointer;
+}
